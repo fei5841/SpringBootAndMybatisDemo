@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<!-- Mybatis自动生成工具：Maven的执行所需要的配置文件 -->
+<generatorConfiguration>
+
+	<!-- 数据库驱动包位置（JDBC的类路径名称） -->
+
+	<!-- <classPathEntry location="C:\instantclient_12_1\ojdbc6.jar" /> -->
+	<!-- <classPathEntry location="C:\mysql-connector-java-5.1.13-bin.jar" /> -->
+
+	<!-- 环境配置 -->
+	<context id="Tables" targetRuntime="MyBatis3">
+
+		<!-- 插件设置 -->
+		<!-- <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"></plugin> <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin> <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" /> -->
+
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+		<!-- 用来除去时间信息 -->
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+
+		<!-- JDBC连接信息（数据库链接URL、用户名、密码） -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/test" userId="root" password="admin"></jdbcConnection>
+		<!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@192.168.0.236:1521:ORCL" userId="C##BSCTELMED" password="BSCTELMED" /> -->
+
+
+		<!-- 类型转换的信息 -->
+		<javaTypeResolver>
+			<!-- 把jdbc中的decimal与numberic类型转化为integer类型 -->
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- 生成模型的包名和位置（也就是是生成实体类的位置） -->
+
+		<javaModelGenerator targetPackage="com.example.demo.entity" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成的映射文件包名和位置(即接口的实现类) -->
+		<sqlMapGenerator targetPackage="com.example.demo.dao" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- 接口类生成位置 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.service" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+
+		<!-- 要生成那些表(更改tableName和domainObjectName就可以：oracle的表名大写) mybatis-generator:generate -->
+		<!-- <table tableName="MED_PATIENT" domainObjectName="MedPatient" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /> <table tableName="MED_CLINIC_REPORT" domainObjectName="MedClinicReport" enableCountByExample="true" 
+			enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" /> <table tableName="MED_REFERRAL_XIANGYA" domainObjectName="MedReferralXiangYa" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false" /> <table tableName="D_DICTITEM" domainObjectName="DDictItem" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /><table tableName="MED_REFERRAL_ZHONGNAN" domainObjectName="MedReferralZhongNan" 
+			enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /> <table tableName="U_REGION" domainObjectName="URegion" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false" /> <table tableName="U_SITE" domainObjectName="USite" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /> <table tableName="U_DEPART" domainObjectName="UDepart" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /> <table tableName="U_USER" domainObjectName="UUser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" 
+			/> <table tableName="D_DICTITEM" domainObjectName="DDictItem" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /> <table tableName="EDU_COL" domainObjectName="CourseType" enableCountByExample="false" 
+			enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" /> <table tableName="EDU_ATTACHMENT" domainObjectName="Attachment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" 
+			selectByExampleQueryId="false" /> -->
+		<table tableName="student" domainObjectName="Student" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+
+
+	</context>
+</generatorConfiguration>
